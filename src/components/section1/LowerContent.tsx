@@ -3,7 +3,7 @@ import React from 'react'
 const LowerContent = () => {
   return (
     <div>
-        <div className="max-w-6xl text-center  px-6 grid md:grid-cols-3 gap-8 text-white ml-10">
+        <div className="max-w-6xl text-center px-6 grid md:grid-cols-3 gap-8 text-white ml-10">
     
     <div>
       <h2 className="text-3xl font-bold text-blue-400">5000+</h2>

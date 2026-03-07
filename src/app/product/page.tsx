@@ -1,11 +1,10 @@
-import React from "react";
-import Heading from "./heading";
-import Card from "@/components/section2/Card"    
+import Heading from "@/components/section2/heading"
+import Card from "@/components/section2/Card";
 import { services } from "@/data/services";
 
-const Section2 = () => {
+export default function ProductPage() {
   return (
-    <section className="w-full bg-slate-900">
+    <section className="w-full bg-amber-500">
       <div className="max-w-7xl mx-auto px-6 text-center py-20">
         <Heading />
 
@@ -16,12 +15,10 @@ const Section2 = () => {
               serviceName={item.serviceName}
               service={item.service}
               LinkUrl={`/product/${item.id}`}
-            />
+            /> 
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Section2;
+}
