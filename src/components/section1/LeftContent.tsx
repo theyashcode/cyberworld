@@ -3,8 +3,8 @@ import LeftCard from './LeftCard'
 
 const LeftContent = () => {
   return (
-    <div className='h-full w-1/2 '>
-    <LeftCard />
+    <div className='w-full md:w-1/2 flex justify-center'>
+      <LeftCard />
     </div>
   )
 }
