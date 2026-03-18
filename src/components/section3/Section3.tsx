@@ -1,81 +1,61 @@
 "use client";
-import { useState } from "react";
 
-type FAQItem = {
-  question: string;
-  answer: string;
-};
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
-const faqs: FAQItem[] = [
-  {
-    question: "PAN card कितने दिन में बनता है?",
-    answer: "PAN card सामान्यतः 7–10 दिन में बन जाता है।",
-  },
-  {
-    question: "Aadhaar update same day होता है?",
-    answer: "कुछ updates same day हो जाते हैं, लेकिन biometric update में 2–3 दिन लग सकते हैं।",
-  },
-  {
-    question: "Printout का क्या charge है?",
-    answer: "Black & White ₹5/page और Color ₹10/page है।",
-  },
-  {
-    question: "Online form भरने में कितना समय लगता है?",
-    answer: "ज्यादातर forms 10–15 मिनट में fill हो जाते हैं।",
-  },
+const images = [
+  "/images/kotakbank.png",
+  "/images/railway.jpeg",
+  "/images/ayushmancard.jpeg",
+  "/images/ignoue.png",
 ];
 
-const Section3 = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+function Section3() {
+  const [current, setCurrent] = useState(0);
 
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="bg-[#0f172a] text-white py-16 px-4 sm:px-6">
-      <div className="max-w-4xl mx-auto">
-
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-10 text-blue-400">
-          ❓ Frequently Asked Questions
+    <section className="w-full bg-slate-900">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-16 text-white text-center">
+        
+        <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          🚀 How It Works
         </h2>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
+        <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px] overflow-hidden rounded-2xl bg-slate-800">
+          
+          {images.map((img, index) => (
             <div
               key={index}
-              className="border border-white/20 rounded-xl overflow-hidden"
+              className={`absolute w-full h-full transition-opacity duration-1000 ${
+                current === index ? "opacity-100" : "opacity-0"
+              }`}
             >
-
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-left px-4 sm:px-5 py-3 sm:py-4 flex justify-between items-center bg-white/10 hover:bg-white/20 transition"
-              >
-                <span className="font-medium text-sm sm:text-base">
-                  {faq.question}
-                </span>
-                <span className="text-lg">
-                  {openIndex === index ? "−" : "+"}
-                </span>
-              </button>
-
-    
-              <div
-                className={`px-4 sm:px-5 overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-40 py-3 sm:py-4" : "max-h-0"
-                }`}
-              >
-                <p className="text-gray-300 text-sm sm:text-base">
-                  {faq.answer}
-                </p>
-              </div>
+              <Image
+                src={img}
+                alt="slide"
+                fill
+                className={`
+                  transition-all duration-500
+                  
+                  object-contain p-4   
+                  sm:object-cover sm:p-0   
+                `}
+              />
             </div>
           ))}
-        </div>
 
+        </div>
       </div>
     </section>
   );
-};
+}
 
 export default Section3;
