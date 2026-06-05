@@ -12,7 +12,6 @@ const page = () => {
       <Section2 />
       <Section3 />
       <Section4 />
-      <Section6 />
     </div>
   )
 }
