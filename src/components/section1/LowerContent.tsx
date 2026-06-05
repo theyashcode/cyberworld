@@ -2,7 +2,7 @@ import React from 'react'
 
 const LowerContent = () => {
   return (
-    <div className="max-w-6xl mx-auto text-center px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 text-white">
+    <div className="max-w-6xl mx-auto text-center pt-15 md:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 text-white mt-10">
       
       <div>
         <h2 className="text-2xl md:text-3xl font-bold text-blue-400">5000+</h2>
